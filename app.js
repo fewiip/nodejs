@@ -1,9 +1,12 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const expressHandlebars = require('express-handlebars');
 
 const app = express();
-app.set('view engine', 'pug');
+
+//app.engine('handlebars', expressHandlebars({layoutsDir : 'views/layouts/', defaultLayout: 'main-layout' }));
+app.set('view engine', 'ejs');//app.set('view engine', 'handlebars');//app.set('view engine', 'pug');
 app.set('views', 'views');
 
 //a ordem importa aqui

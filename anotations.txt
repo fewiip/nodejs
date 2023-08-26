@@ -69,3 +69,11 @@ npm start
 
 isso aqui não funciona:
 node start
+
+ejs 
+
+Não renderiza:
+<%- 
+
+Renderiza:
+<%=
