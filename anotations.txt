@@ -1,0 +1,67 @@
+estando dentro da pasta do projeto, eu dou o seguinte comando :
+'node init'
+
+eu posso adicionar 'package.json'
+
+ "scripts": {
+    "start": "node app.js",  <-----------
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+pra poder rodar esse comando:
+npm start 
+
+com start pode, porque esse nome ja é uma palavra reservada, mas pra qualquer outro nome 
+eu vou ter que adicionar a palavra "start"
+
+era pra ser assim: npm start-server 
+vai ter que ser assim: npm start-server  
+
+como instalar um package: 
+npm install $package-name 
+
+nodemon:
+npm install nodemon 
+
+pra fazer o download do pacote e salvar pra usar apenas nesse projeto: 
+npm install nodemon --save-dev 
+
+as a express.js 'production dependency'
+npm install --save express
+
+pra isntalar o nodemon globalmente:
+nom install nomemon -g 
+
+types of errors:
+-syntax errors (a ide mostra esses tipos de erro, typpos,  )
+-runtime errors (break when it runs, tipos de retorno errado, dá mais erro em linguagens fracamente tipadas)
+-logical errors (nunca vai aparecer uma mensagem de erro, mais dificil de achar)
+
+
+
+testar de novo depois o debugger 
+
+
+instalar o nodemon:
+
+pra instalar globalmente:
+sudo npm install nodemon -g 
+
+instalar o express.js: 
+npm install --save express 
+
+instalar o body-parser pra ler o body:
+npm install --save body-parser
+
+tenho que editar o 'package.json'
+
+
+isso aqui vai ser uma dependencia do nosso app, eu acho que em algum momento se a gente 
+fizer alguma coisa futuro ele deve deixar salvo pra quem quiser fazer o download 
+
+
+pra dar o start:
+npm start
+
+isso aqui não funciona:
+node start
