@@ -30,7 +30,10 @@ as a express.js 'production dependency'
 npm install --save express
 
 pra isntalar o nodemon globalmente:
-nom install nomemon -g 
+npm install nodemon -g 
+
+instalar os pacotes pra usar templates:
+npm install --save ejs pug express-handlebars
 
 types of errors:
 -syntax errors (a ide mostra esses tipos de erro, typpos,  )
@@ -53,8 +56,9 @@ npm install --save express
 instalar o body-parser pra ler o body:
 npm install --save body-parser
 
-tenho que editar o 'package.json'
 
+
+tenho que editar o 'package.json'
 
 isso aqui vai ser uma dependencia do nosso app, eu acho que em algum momento se a gente 
 fizer alguma coisa futuro ele deve deixar salvo pra quem quiser fazer o download 

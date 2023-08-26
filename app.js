@@ -1,19 +1,25 @@
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
-
-//a ordem importa aqui 
-const adminRoutes = require('./routes/admin');
-const shopRoutes = require('./routes/shop');
 
 const app = express();
+app.set('view engine', 'pug');
+app.set('views', 'views');
+
+//a ordem importa aqui
+const adminData = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({extended: false}));
 //app.use(bodyParser.urlencoded());//ja ia funcionar assim 
 //assim posso usar o body-parser nas outras linhas de codigo 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', adminRoutes);//app.use(adminRoutes);//assim eu consigo usar as rotas de admin 
+//app.use('/admin', adminRoutes);//app.use(adminRoutes);//assim eu consigo usar as rotas de admin 
+app.use('/admin', adminData.routes);
+//app.use('/admin', adminData.routes);//assim nao funciona
+//console.log(adminData.products + " felipinho gostosinho");
+
 app.use(shopRoutes);
 
 app.use((request, response, next) => {
