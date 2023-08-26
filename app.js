@@ -27,7 +27,8 @@ app.use(shopRoutes);
 
 app.use((request, response, next) => {
     //response.status(404).send('<h1>page no found! 404 </h1>');
-    response.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+    //response.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+    response.status(404).render('404', { pageTitle: 'Page Not Found', path: null });
 });
 
 //console.log(routes.someText);
