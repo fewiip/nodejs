@@ -1,17 +1,21 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const expressHandlebars = require('express-handlebars');
+const errorController = require('./controllers/error');
 
 const app = express();
 
-//app.engine('handlebars', expressHandlebars({layoutsDir : 'views/layouts/', defaultLayout: 'main-layout' }));
-app.set('view engine', 'ejs');//app.set('view engine', 'handlebars');//app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 app.set('views', 'views');
+//const expressHandlebars = require('express-handlebars');
+//
+//app.engine('handlebars', expressHandlebars({layoutsDir : 'views/layouts/', defaultLayout: 'main-layout' }));
+//app.set('view engine', 'handlebars');//app.set('view engine', 'pug');
 
 //a ordem importa aqui
-const adminData = require('./routes/admin');
+const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const { error } = require('console');
 
 app.use(bodyParser.urlencoded({extended: false}));
 //app.use(bodyParser.urlencoded());//ja ia funcionar assim 
@@ -19,17 +23,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/admin', adminRoutes);//app.use(adminRoutes);//assim eu consigo usar as rotas de admin 
-app.use('/admin', adminData.routes);
+app.use('/admin', adminRoutes);
 //app.use('/admin', adminData.routes);//assim nao funciona
 //console.log(adminData.products + " felipinho gostosinho");
 
 app.use(shopRoutes);
-
-app.use((request, response, next) => {
-    //response.status(404).send('<h1>page no found! 404 </h1>');
-    //response.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
-    response.status(404).render('404', { pageTitle: 'Page Not Found', path: null });
-});
+app.use(errorController.get404Page);
 
 //console.log(routes.someText);
 app.listen(3000);
